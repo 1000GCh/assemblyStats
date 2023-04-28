@@ -7,7 +7,7 @@ nextflow.enable.dsl=2
  *************************************/
 
 swift_container = 'swift'
-busco_container = 'ezlabgva/busco:v5.1.2_cv1'
+busco_container = 'ezlabgva/busco:v5.4.5_cv1'
 
 def helpMessage() {
   log.info isuGIFHeader()
@@ -65,7 +65,8 @@ process setupBUSCO {
   script:
   """
   #mkdir ../../../$params.outdir/config
-  cp -r /augustus/config .
+  #cp -r /augustus/config .
+  mkdir config
   echo "$busco_container" > Busco_version.txt
   """
 }
